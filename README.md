@@ -21,6 +21,7 @@ open browser to localhost:8000
 
 Content can be edited in `src/pages/index.md`
 
+The file uses key pair values.
 Values must be strings.
 
 To add items to lists such as `Section_2_Logos`, be sure to enter valid json and escape `"`:
