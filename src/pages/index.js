@@ -5,6 +5,10 @@ import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
 
+const linkify = (string) => {
+  return { __html: string.replace(/\[(.+?)\]\((https?:\/\/[a-zA-Z0-9/.(]+?)\)/g, '<a href="$2">$1<a/>')}
+}
+
 const IndexPage = ({ data }) => {
   console.log(data)
   let content = data.allMarkdownRemark.edges[0].node.frontmatter
@@ -14,7 +18,7 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="Home" />
       <h1>{content.Header_Title}</h1>
-      <p>{content.Header_Description}</p>
+      <p dangerouslySetInnerHTML={linkify(content.Header_Description)}></p>
       <Link to={content.Header_Button_Link}>{content.Header_Button_Text}</Link>
 
 
@@ -27,7 +31,7 @@ const IndexPage = ({ data }) => {
       <p>{content.Section_2_Text}</p>
       <Link to={content.Section_2_Button_Text}>{content.Section_2_Button_Text}</Link>
       {logos.map(logo => <>
-        <img src={logo.image}/>
+        <img src={logo.image} />
         <p>{logo.title}</p>
       </>)}
 

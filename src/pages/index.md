@@ -1,6 +1,6 @@
 ---
 Header_Title: "Does this update?"
-Header_Description: "Out tools help you to track..."
+Header_Description: "Our tools help you to track [some link](https://amazon.com) and here's another link [another link](https://somelink.com)"
 Header_Button_Text: "Learn More"
 Header_Button_Link: "#"
 Section_1_Header: "Faster Monitoring"
