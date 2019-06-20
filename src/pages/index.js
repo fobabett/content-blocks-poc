@@ -4,6 +4,7 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import Img from "gatsby-image"
 
 const linkify = (string) => {
   return { __html: string.replace(/\[(.+?)\]\((https?:\/\/[a-zA-Z0-9/.(]+?)\)/g, '<a href="$2">$1<a/>')}
@@ -12,8 +13,8 @@ const linkify = (string) => {
 const IndexPage = ({ data }) => {
   console.log(data)
   let content = data.allMarkdownRemark.edges[0].node.frontmatter
-  let quotes = JSON.parse(content.Quotes)
-  let logos = JSON.parse(content.Section_2_Logos)
+  let quotes = content.Quotes
+  let logos = content.Section_2_Logos
   return (
     <Layout>
       <SEO title="Home" />
@@ -31,7 +32,7 @@ const IndexPage = ({ data }) => {
       <p>{content.Section_2_Text}</p>
       <Link to={content.Section_2_Button_Text}>{content.Section_2_Button_Text}</Link>
       {logos.map(logo => <>
-        <img src={logo.image} />
+        <img src={logo.image.publicURL}/>
         <p>{logo.title}</p>
       </>)}
 
@@ -93,8 +94,21 @@ query {
           Section_2_Text
           Section_2_Button_Text
           Section_2_Button_Link
-          Section_2_Logos
-          Quotes
+          Section_2_Logos {
+            image {
+              publicURL
+              childImageSharp {
+                sizes(maxWidth: 1240 ) {
+                  srcSet
+                }
+              }
+            }
+            title
+          }
+          Quotes {
+            quote
+            by
+          }
           Homepage_Products
           Homepage_Products_Description
           Homepage_Product_1_Icon

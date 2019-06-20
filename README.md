@@ -20,11 +20,3 @@ open browser to localhost:8000
 # Updating Content
 
 Content can be edited in `src/pages/index.md`
-
-The file uses key pair values.
-Values must be strings.
-
-To add items to lists such as `Section_2_Logos`, just add valid json and be sure to escape `"`:
-```
-{\"image\": \"http://placehold.it\", \"title\": \"subway\"}
-```

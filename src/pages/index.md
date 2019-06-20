@@ -11,8 +11,8 @@ Section_2_Title: "Simplify mountains of..."
 Section_2_Text: "We give you access to..."
 Section_2_Button_Text: "More on Inspection Intel"
 Section_2_Button_Link: "#"
-Section_2_Logos: "[{\"image\": \"http://placehold.it\", \"title\": \"amazon\"}]"
-Quotes: "[{\"quote\": \"hello\", \"by\": \"someone\"}]"
+Section_2_Logos: [{image: "../images/gatsby-astronaut.png", title: "amazon"}]
+Quotes: [{quote: "hello", by: "someone"}]
 Homepage_Products: "Our Products"
 Homepage_Products_Description: "Depending on your business needs..."
 Homepage_Product_1_Icon: "http://placehold.it/300"
